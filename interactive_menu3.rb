@@ -44,7 +44,22 @@ def input_students
   end
   @students
 end  
-  
+
+def save_students
+# open the file for writing
+  file = File.open("students.csv", "w")
+# iterate over the array of students so that 
+  @students.each do |student|
+  #every iteration writes a file like Dr. Hannibal Lecter,november = ["Der. Hannibal Lecter", :november]
+  student_data = [student[:name], student[:cohort]]#
+  #then join it all together in a string like "Dr.Hannibal Lecter,november"
+  csv_line = student_data.join(",")
+  file.puts csv_line
+  end
+  file.close
+end
+
+
 #nothing happens until we call the methods
 @students = interactive_menu
 print_header
