@@ -12,6 +12,7 @@ def print_menu
   # Print the menu and ask the user what to do
   puts "1. Input the students"
   puts "2. Show the students"
+  puts "3. Save the list to students.csv"
   puts "9. Exit" #because we will add more items
 end
 
@@ -28,13 +29,21 @@ def process(selection)
       input_students
     when "2"
       show_students
+    when "3"
+      save_students
     when "9"
       exit
     else
       puts "I don't know what you mean, try again"
   end
 end
-  
+
+def input_students
+  loop do 
+    @students = gets.chomp
+  end
+  @students
+end  
   
 #nothing happens until we call the methods
 @students = interactive_menu
